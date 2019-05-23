@@ -6,6 +6,9 @@ class Header extends Component {
   render() {
     return (
       <Fragment>
+        <Link href="/">
+          <a className="routes">Home</a>
+        </Link>
         <Link href="/about">
           <a className="routes">About</a>
         </Link>
