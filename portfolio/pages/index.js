@@ -1,14 +1,12 @@
 import React, { Fragment } from 'react';
-import Link from 'next/link';
+
+import Header from '../components/shared/Header';
 
 const Index = () => {
   return (
     <Fragment>
-      <div>Hello Index</div>
-      <Link href="/about">About</Link>
-      <Link href="/portfolios">Portfolios</Link>
-      <Link href="/blogs">Blogs</Link>
-      <Link href="/cv">CV</Link>
+      <div>Index</div>
+      <Header />
     </Fragment>
   );
 };
