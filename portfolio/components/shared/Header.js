@@ -1,22 +1,30 @@
 import React, { Component, Fragment } from 'react';
 import Link from 'next/link';
+import '../../styles/Header.scss';
 
 class Header extends Component {
   render() {
     return (
       <Fragment>
         <Link href="/about">
-          <a>About</a>
+          <a className="routes">About</a>
         </Link>
         <Link href="/portfolios">
-          <a>Portfolios</a>
+          <a className="routes">Portfolios</a>
         </Link>
         <Link href="/blogs">
-          <a>Blogs</a>
+          <a className="routes">Blogs</a>
         </Link>
         <Link href="/cv">
-          <a>CV</a>
+          <a className="routes">CV</a>
         </Link>
+        <style jsx>
+          {`
+            a {
+              font-size: 20px;
+            }
+          `}
+        </style>
       </Fragment>
     );
   }
