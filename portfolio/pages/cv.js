@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import BaseLayout from '../components/layout/BaseLayout';
 
 class CV extends Component {
   render() {
-    return <div>I am CV page...</div>;
+    return (
+      <BaseLayout>
+        <div>I am CV page...</div>
+      </BaseLayout>
+    );
   }
 }
 
