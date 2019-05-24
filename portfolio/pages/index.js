@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import BaseLayout from '../components/layout/BaseLayout';
 
 class Index extends Component {
-  static getInitialProps() {
-    console.log('I am getInitialProps');
+  static async getInitialProps() {
+    let userData = {};
+    // console.log('I am getInitialProps');
+    try {
+      const response = await axios.get(
+        'https://jsonplaceholder.typicode.com/todos/1'
+      );
+      userData = response.data;
+    } catch (error) {
+      console.error(error);
+    }
 
-    return { initialData: [1, 2, 3, 4] };
+    return { initialData: [1, 2, 3, 4], userData };
   }
 
   constructor(props) {
@@ -39,16 +49,17 @@ class Index extends Component {
   };
 
   render() {
+    // debugger;
     // const title = this.state.title;
-    debugger;
     const { title } = this.state;
-    const initialData = this.props.initialData;
+    const { userData, initialData } = this.props;
 
     // console.log('render');
     return (
       <BaseLayout>
         <h1>I am Index</h1>
         <h2>{title}</h2>
+        <h2 key={userData.id}>{userData.title}</h2>
         <button onClick={() => this.updateTitle()}>Change Me</button>
       </BaseLayout>
     );
