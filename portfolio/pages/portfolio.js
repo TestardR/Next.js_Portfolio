@@ -14,7 +14,7 @@ class Portfolio extends Component {
       );
 
       portfolio = response.data;
-      console.log(portfolio);
+      // console.log(portfolio);
     } catch (error) {
       console.error(error);
     }
