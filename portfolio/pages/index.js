@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BaseLayout from '../components/layout/BaseLayout';
-
+import '../styles/main.scss';
 import { Container, Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
