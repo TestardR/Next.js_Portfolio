@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Link from 'next/link';
+
 import BaseLayout from '../components/layout/BaseLayout';
 
 class Portfolios extends Component {
@@ -19,19 +21,18 @@ class Portfolios extends Component {
   }
 
   renderPosts(posts) {
-    debugger;
     return posts.map(post => {
       return (
         <li key={post.id}>
-          <h3>{post.title}</h3>
-          <p>{post.body}</p>
+          <Link href={`/portfolio?title=${post.title}`}>
+            <a style={{ fontSize: '20px' }}>{post.title}</a>
+          </Link>
         </li>
       );
     });
   }
 
   render() {
-    debugger;
     const { posts } = this.props;
     return (
       <BaseLayout>
