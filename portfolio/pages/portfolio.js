@@ -4,7 +4,7 @@ import BaseLayout from '../components/layout/BaseLayout';
 
 class Portfolio extends Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <BaseLayout>
         <div>I am portfolio page...</div>
