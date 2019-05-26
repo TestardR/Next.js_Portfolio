@@ -4,6 +4,7 @@ import { withRouter } from 'next/router';
 import BaseLayout from '../components/layout/BaseLayout';
 import BasePage from '../components/layout/BasePage';
 import auth0Client from '../services/auth0';
+import Loader from '../components/shared/Loader';
 
 class Callback extends Component {
   async componentDidMount() {
@@ -15,7 +16,7 @@ class Callback extends Component {
     return (
       <BaseLayout>
         <BasePage>
-          <div>Verifying login data...</div>
+          <Loader />
         </BasePage>
       </BaseLayout>
     );
