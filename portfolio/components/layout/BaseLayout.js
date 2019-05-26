@@ -3,7 +3,6 @@ import Header from '../shared/Header';
 
 const BaseLayout = props => {
   const { className, children } = props;
-
   return (
     <div className="layout-container">
       <Header />

@@ -12,7 +12,7 @@ class Index extends Component {
       'Full-Stack Developer',
       'Software Engineer',
       'Tech Lover',
-      'Team Leader'
+      'Hip-Hop Head'
     ];
   }
 
@@ -49,13 +49,7 @@ class Index extends Component {
               </Col>
               <Col md="6" className="hero-welcome-wrapper">
                 <div className="hero-welcome-text">
-                  <h1>
-                    Welcome to the website of Romain Testard.
-                    <br />
-                    <br />
-                    Get informed, collaborate and discover projects I was
-                    working on through the years!
-                  </h1>
+                  <h1>Welcome to my website.</h1>
                   <br />
                   <Typed
                     className="self-typed"

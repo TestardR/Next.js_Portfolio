@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { withRouter } from 'next/router';
 import BaseLayout from '../components/layout/BaseLayout';
 import Axios from 'axios';
+import BasePage from '../components/layout/BasePage';
 
 class Portfolio extends Component {
   static async getInitialProps({ query }) {
@@ -38,7 +39,9 @@ class Portfolio extends Component {
 
     return (
       <BaseLayout>
-        <div>{this.renderPortfolio(portfolio)}</div>
+        <BasePage>
+          <div>{this.renderPortfolio(portfolio)}</div>
+        </BasePage>
       </BaseLayout>
     );
   }
