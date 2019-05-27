@@ -13,13 +13,18 @@ class Index extends Component {
   }
 
   render() {
+    const { isAuthenticated, user } = this.props.auth;
     return (
       <BaseLayout className="cover" {...this.props.auth}>
         <BaseParticle />
         <div className="main-section">
           <Container>
             <div className="hero-welcome-text">
-              <h1>Welcome to my website</h1>
+              <h1>
+                {' '}
+                {isAuthenticated && <span> {user.name}</span>} Welcome to my
+                website
+              </h1>
               <br />
               <Typed
                 className="self-typed"
