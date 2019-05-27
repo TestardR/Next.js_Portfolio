@@ -4,6 +4,14 @@ import BasePage from '../layout/BasePage';
 
 export default function(Component) {
   return class withAuth extends React.Component {
+    static async getInitialProps(args) {
+      const pageProps =
+        (await Component.getInitialProps) &&
+        (await Component.getInitialProps(args));
+
+      return { ...pageProps };
+    }
+
     renderProtectedPage() {
       const { isAuthenticated } = this.props.auth;
 
