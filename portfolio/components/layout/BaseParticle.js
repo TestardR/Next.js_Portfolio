@@ -4,7 +4,7 @@ import Particles from 'react-particles-js';
 const particlesOptions = {
   particles: {
     number: {
-      value: 99,
+      value: 300,
       density: {
         enable: true,
         value_area: 800
@@ -75,7 +75,7 @@ const particlesOptions = {
     events: {
       onhover: {
         enable: true,
-        mode: 'repulse'
+        mode: 'grab'
       },
       onclick: {
         enable: true,
@@ -85,14 +85,14 @@ const particlesOptions = {
     },
     modes: {
       grab: {
-        distance: 400,
+        distance: 140,
         line_linked: {
           opacity: 1
         }
       },
       repulse: {
-        distance: 100,
-        duration: 0.4
+        distance: 200,
+        duration: 1
       },
       push: {
         particles_nb: 4

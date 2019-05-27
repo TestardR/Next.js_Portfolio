@@ -6,8 +6,7 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink
+  NavItem
 } from 'reactstrap';
 import auth0 from '../../services/auth0';
 
@@ -29,7 +28,14 @@ const Login = () => {
 };
 
 const Logout = () => {
-  return <span className="nav-link port-navbar-link clickable">Logout</span>;
+  return (
+    <span
+      onClick={auth0.logout}
+      className="nav-link port-navbar-link clickable"
+    >
+      Logout
+    </span>
+  );
 };
 
 export default class Example extends React.Component {
@@ -70,12 +76,16 @@ export default class Example extends React.Component {
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/portfolios" title="Portfolio" />
               </NavItem>
-              <NavItem className="port-navbar-item">
-                <Login />
-              </NavItem>
-              <NavItem className="port-navbar-item">
-                <Logout />
-              </NavItem>
+              {!auth0.isAuthenticated() && (
+                <NavItem className="port-navbar-item">
+                  <Login />
+                </NavItem>
+              )}
+              {auth0.isAuthenticated() && (
+                <NavItem className="port-navbar-item">
+                  <Logout />
+                </NavItem>
+              )}
             </Nav>
           </Collapse>
         </Navbar>
