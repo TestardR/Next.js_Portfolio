@@ -38,7 +38,7 @@ class Portfolio extends Component {
     // console.log(portfolio);
 
     return (
-      <BaseLayout>
+      <BaseLayout {...this.props.auth}>
         <BasePage>
           <div>{this.renderPortfolio(portfolio)}</div>
         </BasePage>

@@ -36,7 +36,7 @@ class Portfolios extends Component {
   render() {
     const { posts } = this.props;
     return (
-      <BaseLayout>
+      <BaseLayout {...this.props.auth}>
         <BasePage>
           <div>I am Portfolios page</div>
           <ul>{this.renderPosts(posts)}</ul>

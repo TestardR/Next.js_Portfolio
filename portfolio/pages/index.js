@@ -14,7 +14,7 @@ class Index extends Component {
 
   render() {
     return (
-      <BaseLayout className="cover">
+      <BaseLayout className="cover" {...this.props.auth}>
         <BaseParticle />
         <div className="main-section">
           <Container>
