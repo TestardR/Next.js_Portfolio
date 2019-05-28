@@ -1,23 +1,50 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import BaseLayout from '../components/layout/BaseLayout';
 import BasePage from '../components/layout/BasePage';
-
+import Loader from '../components/shared/Loader';
 import withAuth from '../components/hoc/withAuth';
 
-class Secret extends Component {
-  static getInitialProps() {
-    const secretV = 'Secret V';
+import axios from 'axios';
+import { getSecretData } from '../actions/index';
 
-    return { secretV };
+class Secret extends Component {
+  constructor(props) {
+    super();
+
+    this.state = {
+      secretData: []
+    };
+  }
+
+  async componentDidMount() {
+    const secretData = await getSecretData();
+
+    this.setState({
+      secretData
+    });
+  }
+
+  displaySecretData() {
+    const { secretData } = this.state;
+
+    if (secretData && secretData.length > 0) {
+      return secretData.map((data, index) => {
+        return (
+          <Fragment key={index}>
+            <p>{data.title}</p>
+            <p>{data.description}</p>
+          </Fragment>
+        );
+      });
+    } else return <Loader />;
   }
 
   render() {
-    const { secretV } = this.props;
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage>
-          <div>I am Secret page...</div>
-          <p>{secretV}</p>
+          <h1>I am Secret page...</h1>
+          {this.displaySecretData()}
         </BasePage>
       </BaseLayout>
     );
