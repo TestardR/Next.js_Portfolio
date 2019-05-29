@@ -80,7 +80,12 @@ const PortfolioForm = () => (
 
           <Field name="startDate" label="Start Date" component={PortDate} />
 
-          <Field name="endDate" label="End Date" component={PortDate} />
+          <Field
+            name="endDate"
+            label="End Date"
+            component={PortDate}
+            canBeDisabled={true}
+          />
 
           <Button type="submit" disabled={isSubmitting}>
             Create
