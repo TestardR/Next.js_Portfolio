@@ -8,7 +8,8 @@ import {
   CardHeader,
   CardBody,
   CardText,
-  CardTitle
+  CardTitle,
+  CardImg
 } from 'reactstrap';
 
 import BaseLayout from '../components/layout/BaseLayout';
@@ -37,6 +38,12 @@ class Portfolios extends Component {
           <React.Fragment key={index}>
             <span>
               <Card className="portfolio-card">
+                <CardImg
+                  top
+                  width="100%"
+                  src="../static/images/js.jpg"
+                  alt="Card image cap"
+                />
                 <CardHeader className="portfolio-card-header">
                   Some Position {index}
                 </CardHeader>
