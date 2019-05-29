@@ -7,6 +7,7 @@
 
 // COMPONENTS
 @import './header';
+@import './portfolioForm';
 
 // LOADER
 @import './shared/loader';
@@ -31,8 +32,8 @@ body {
 
 // BASEPAGE
 .base-page {
-  padding-top: 150px;
-  color: white;
+  padding-top: 180px;
+  color: black;
   background-color: #ecedee;
   min-height: 100vh;
 
