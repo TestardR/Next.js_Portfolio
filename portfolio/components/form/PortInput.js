@@ -7,7 +7,7 @@ const PortInput = ({
   form: { touched, errors },
   ...props
 }) => (
-  <FormGroup className="portfolioForm">
+  <FormGroup>
     <Label>{label}</Label>
     <Input type={type} {...field} {...props} />
     {touched[field.name] && errors[field.name] && (

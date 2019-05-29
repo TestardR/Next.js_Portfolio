@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button, FormGroup, Label } from 'reactstrap';
 import PortInput from '../form/PortInput';
+import PortDate from '../form/PortDate';
 
 const INITIAL_STATE = {
   title: '',
@@ -18,22 +19,23 @@ const validateInputs = values => {
   //   const keyArray = Object.entries([key, values]);
 
   Object.entries(values).forEach(([key, value]) => {
-    debugger;
-    if (!values[key]) {
+    if (!values[key] && key !== 'endDate') {
       errors[key] = `Field ${key} is required`;
     }
   });
 
-  if (!values.title) {
-    errors.title = 'Title is required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-    errors.email = 'Invalid email address';
+  const startDate = values.startDate;
+  const endDate = values.endDate;
+
+  if (startDate && endDate && endDate.isBefore(startDate)) {
+    errors.endDate = 'End Date cannot be before start date!!!';
   }
+
   return errors;
 };
 
 const PortfolioForm = () => (
-  <div>
+  <div className="portfolioForm">
     <Formik
       initialValues={INITIAL_STATE}
       validate={validateInputs}
@@ -46,68 +48,39 @@ const PortfolioForm = () => (
     >
       {({ isSubmitting }) => (
         <Form>
-          <FormGroup>
-            <Field
-              type="text"
-              name="title"
-              label="Title"
-              component={PortInput}
-            />
-          </FormGroup>
+          <Field type="text" name="title" label="Title" component={PortInput} />
 
-          <FormGroup>
-            <Field
-              type="text"
-              name="company"
-              label="Company"
-              component={PortInput}
-            />
-          </FormGroup>
+          <Field
+            type="text"
+            name="company"
+            label="Company"
+            component={PortInput}
+          />
 
-          <FormGroup>
-            <Field
-              type="text"
-              name="location"
-              label="Location"
-              component={PortInput}
-            />
-          </FormGroup>
+          <Field
+            type="text"
+            name="location"
+            label="Location"
+            component={PortInput}
+          />
 
-          <FormGroup>
-            <Field
-              type="text"
-              name="position"
-              label="Position"
-              component={PortInput}
-            />
-          </FormGroup>
+          <Field
+            type="text"
+            name="position"
+            label="Position"
+            component={PortInput}
+          />
 
-          <FormGroup>
-            <Field
-              type="textarea"
-              name="description"
-              label="Description"
-              component={PortInput}
-            />
-          </FormGroup>
+          <Field
+            type="textarea"
+            name="description"
+            label="Description"
+            component={PortInput}
+          />
 
-          <FormGroup>
-            <Field
-              type="text"
-              name="startDate"
-              label="Start Date"
-              component={PortInput}
-            />
-          </FormGroup>
+          <Field name="startDate" label="Start Date" component={PortDate} />
 
-          <FormGroup>
-            <Field
-              type="text"
-              name="endDate"
-              label="End Date"
-              component={PortInput}
-            />
-          </FormGroup>
+          <Field name="endDate" label="End Date" component={PortDate} />
 
           <Button type="submit" disabled={isSubmitting}>
             Create
