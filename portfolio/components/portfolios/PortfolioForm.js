@@ -15,8 +15,10 @@ const INITIAL_STATE = {
 
 const validateInputs = values => {
   let errors = {};
-  const keyArray = Object.keys(values);
-  keyArray.forEach(key => {
+  //   const keyArray = Object.entries([key, values]);
+
+  Object.entries(values).forEach(([key, value]) => {
+    debugger;
     if (!values[key]) {
       errors[key] = `Field ${key} is required`;
     }
