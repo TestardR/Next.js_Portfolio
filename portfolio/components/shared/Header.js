@@ -38,7 +38,7 @@ const Logout = () => {
   );
 };
 
-export default class Example extends React.Component {
+export default class Header extends React.Component {
   constructor(props) {
     super(props);
 
@@ -53,11 +53,11 @@ export default class Example extends React.Component {
     });
   }
   render() {
-    const { isAuthenticated } = this.props;
+    const { isAuthenticated, className } = this.props;
     return (
       <div>
         <Navbar
-          className="port-navbar port-default absolute"
+          className={`port-navbar port-nav-base absolute ${className}`}
           color="transparent"
           dark
           expand="md"
@@ -77,6 +77,9 @@ export default class Example extends React.Component {
               </NavItem>
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/portfolios" title="Portfolio" />
+              </NavItem>
+              <NavItem className="port-navbar-item">
+                <BsNavLink route="/blogs" title="Blog" />
               </NavItem>
               {!isAuthenticated && (
                 <NavItem className="port-navbar-item">

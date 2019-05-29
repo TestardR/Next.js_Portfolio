@@ -5,9 +5,7 @@ import BasePage from '../components/layout/BasePage';
 const About = props => {
   return (
     <BaseLayout {...props.auth}>
-      <BasePage className="about-page">
-        <div>Hello About</div>
-      </BasePage>
+      <BasePage className="about-page" title="About Me" />
     </BaseLayout>
   );
 };
