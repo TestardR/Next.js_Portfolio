@@ -5,18 +5,33 @@ import withAuth from '../components/hoc/withAuth';
 import PortfolioForm from '../components/portfolios/PortfolioForm';
 import { Row, Col } from 'reactstrap';
 
-const PortfolioNew = props => {
-  return (
-    <BaseLayout {...props.auth}>
-      <BasePage className="portfolio-create-page" title="Create new Portfolio">
-        <Row>
-          <Col md="6">
-            <PortfolioForm />
-          </Col>
-        </Row>
-      </BasePage>
-    </BaseLayout>
-  );
-};
+class PortfolioNew extends React.Component {
+  constructor(props) {
+    super();
+
+    this.savePortfolio = this.savePortfolio.bind(this);
+  }
+
+  savePortfolio(portfolioData) {
+    alert(JSON.stringify(portfolioData, null, 2));
+  }
+
+  render() {
+    return (
+      <BaseLayout {...this.props.auth}>
+        <BasePage
+          className="portfolio-create-page"
+          title="Create new Portfolio"
+        >
+          <Row>
+            <Col md="6">
+              <PortfolioForm onSubmit={this.savePortfolio} />
+            </Col>
+          </Row>
+        </BasePage>
+      </BaseLayout>
+    );
+  }
+}
 
 export default withAuth('siteOwner')(PortfolioNew);
