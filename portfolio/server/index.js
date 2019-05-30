@@ -1,5 +1,6 @@
 const express = require('express');
 const next = require('next');
+const mongoose = require('mongoose');
 const routes = require('../routes');
 
 // SERVICE
@@ -19,6 +20,14 @@ const secretData = [
     description: 'My secret passwords'
   }
 ];
+
+// DB Config
+const db = require('../config/keys').mongoURI;
+
+mongoose
+  .connect(db, { useNewUrlParser: true })
+  .then(() => console.log('Database Connected'))
+  .catch(err => console.log(err));
 
 app
   .prepare()
