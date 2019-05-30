@@ -1,6 +1,6 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Button, FormGroup, Label } from 'reactstrap';
+import { Formik, Form, Field } from 'formik';
+import { Button } from 'reactstrap';
 import PortInput from '../form/PortInput';
 import PortDate from '../form/PortDate';
 
@@ -19,7 +19,7 @@ const validateInputs = values => {
   //   const keyArray = Object.entries([key, values]);
 
   Object.entries(values).forEach(([key, value]) => {
-    if (!values[key] && key !== 'endDate') {
+    if (!values[key] && key !== 'startDate' && key !== 'endDate') {
       errors[key] = `Field ${key} is required`;
     }
   });
@@ -87,7 +87,13 @@ const PortfolioForm = () => (
             canBeDisabled={true}
           />
 
-          <Button type="submit" disabled={isSubmitting}>
+          <Button
+            outline
+            color="success"
+            size="lg"
+            type="submit"
+            disabled={isSubmitting}
+          >
             Create
           </Button>
         </Form>
